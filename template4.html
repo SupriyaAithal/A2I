@@ -16,6 +16,8 @@
           </br>
           <v-flex lg12>
           <p><b>Step 1<b>: Verify a Caller ID</p>
+          <hr>
+        </br>
           </v-flex>
           <v-flex offset-lg5>
           <p>You've verified 12345678</p>
@@ -23,6 +25,8 @@
         </br>
         <v-flex>
           <p>Step 2: Enter your payment information</p>
+          <hr>
+        </br>
         </v-flex>
         <v-flex>
             <v-subheader v-text="'Methods'"></v-subheader>
@@ -37,20 +41,40 @@
           <v-flex lg8 offset-lg2>
             <v-card>
               <v-card-text row>
-                <v-flex lg4>
-                  <v-text-field
-                    label="First name"
-                  ></v-text-field>
-                  <v-text-field
-                    label="Last name"
-                  ></v-text-field>
-                </v-flex>
+                <v-layout row wrap>
+                    <v-flex xs12 sm6>
+                      <v-text-field
+                        label="Credit Card Number"
+                        placeholder="xxxx xxxx xxxx xxxx"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm2>
+                      <v-text-field
+                        label="Expires"
+                        placeholder="MM"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex xs12 sm2>
+                      <v-text-field
+                        label=""
+                        placeholder="YYYY"
+                      ></v-text-field>
+                      </v-flex>
+                      <v-flex xs12 sm2>
+                        <v-text-field
+                          label="CVV"
+                           placeholder="***"
+                        ></v-text-field>
+                        </v-flex>
+                    </v-layout>
               </v-card-text>
             </v-card>
           </v-flex>
         </br>
         <v-flex>
           <p>Step 3: Add funds</p>
+          <hr>
+          </br>
         </v-flex>
         <v-flex xs12 sm6 offset-sm3>
           <v-card>
@@ -68,7 +92,7 @@
              <v-card color="grey lighten-2">
                <v-card-text>
                  <v-flex>
-                  <v-checkbox value="right" label="Turn on automatic recharging"></v-checkbox>
+                  <v-checkbox v-model="mode" value="Turn on automatic recharging" label="Turn on automatic recharging"></v-checkbox>
                  </v-flex>
                  <p>When your balance falls below $10.00, we will recharge your balance to $20</p>
                </v-card-text>
@@ -94,6 +118,7 @@
       data() {
         return {
           al: null,
+          mode:'',
           recharge: ["$10", "$20", "$30", "$40", "$50"]
 
         }
@@ -103,3 +128,15 @@
 </body>
 
 </html>
+
+<style>
+h1{
+  font-family: 'Nunito SemiBold';
+  font-size: 40px
+}
+p{
+  font-family: 'Nunito SemiBold';
+  font-size: 18px
+}
+
+</style>
